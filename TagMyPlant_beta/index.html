@@ -1,0 +1,240 @@
+﻿<!DOCTYPE html>
+<html>
+<head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1" />
+    <!--jQuerry-->
+    <script src="lib/jquery.min.js"></script>
+    <!--jQuerry Mobile-->
+    <link rel="stylesheet" href="lib/mobile/jquery.mobile.min.css" />
+    <script src="lib/mobile/jquery.mobile.min.js"></script>
+    <!--jQuerry Media-->
+    <script src="lib/jquery.media.js"></script>
+    <!--Quagga js-->
+    <link rel="stylesheet" type="text/css" href="lib/quagga/quagga.css" />
+    <script src="lib/quagga/quagga.min.js"></script>
+    <script src="js/barcode.js"></script>
+    <!--GoogleDocsPDF-->
+    <script src="lib/pdf/jquery.gdocsviewer.min.js"></script>
+    <!--MVC-Konstrukt-->
+    <script src="lib/mvc.js"></script>
+    <script src="js/model.js"></script>
+    <script src="js/view.js"></script>
+    <script src="js/controller.js"></script>
+    <!--IfA-Versuchsanlage-->
+    <script src="js/ifa_anlage.js"></script>
+    <!--Wurzelfunktion-->
+    <script src="js/main.js"></script>
+    <!--Projekt-CSS-->
+    <link rel="stylesheet" type="text/css" href="css/index.css" />
+    <!--Display-Skallierung auf Endgerät-->
+    <meta name="viewport" content="width=device-width, initial-scale=1,maximum-scale=1" />
+</head>
+<body>
+    <!--Titel-Bildschirm-->
+    <div id="home_page" data-role="page" data-content-theme="c">
+        <div data-role="header" data-position="fixed">
+            <h1 role="heading">TMP</h1>
+            <!--Navigation rechte Seite-->
+            <div class="ui-btn-right" data-role="controlgroup" data-type="horizontal">
+                <a href="" id="home_info" data-role="button" data-icon="info" data-iconpos="notext" data-rel="dialog">Info</a>
+            </div>
+        </div>
+        <div data-role="content">
+            <p style="margin-bottom:30px; margin-top:0; text-align:center; font-size:50px; font-weight:bolder">Tag My Plant</p>
+            <center>
+                <img src="img/titel.jpg" style="height:200px; width:auto" alt="TMP-Titelbild" align="middle">
+            </center>
+            <p style="margin-top:30px; text-align:justify">
+                Die Webapplikation 'Tag My Plant' soll demonstrieren, wie Internet-Technologien unterstützend in den industriellen
+                Arbeitsalltag eingebunden werden können.
+            </p>
+            <p style="text-align:justify">
+                Das Fallbeispiel: Ein Instandhalter möchte vor Ort Informationen zu den in
+                der Anlage verbauten Betriebsmitteln haben, ohne riesige Aktenberge, oder auch weitere EDV-Geräte mitnehmen zu müssen.
+                Was er jedoch immer dabei hat ist sein Smartphone. 'Tag My Plant' wandelt dieses Gerät in eine elektronische Datenbank um,
+                die gut zu handeln ist und auch im rauen, oftmals beengten industriellen Umfeld, auf einfachste Weise Informationen
+                bereitstellen kann. Die mit einem Barcode gemarkerten Betriebsmittel (BM) werden mit dem Smartphone erfasst, woraufhin
+                die zugehörigen Datenblätter dem Anwender bereitgestellt werden. Ist es einmal doch nicht möglich den Barcode ordentlich
+                zu erfassen, steht die Möglichkeit bereit über eine Liste der BM an die gewünschten Informationen zu gelangen.
+            </p>
+            <hr size="1" />
+            <ul data-role="listview" data-inset="true">
+                <li class="ui-field-contain" style="vertical-align:central" data-theme="a">
+                    <div style="font-size:25px; font-weight:bold; vertical-align:middle; text-align:center">Auswahl für BM-Suche</div>
+                </li>
+                <li><a href="" id="bm_ueber_barcode">BM über Barcode-Scan</a></li>
+                <li><a href="" id="bm_ueber_liste">BM über Liste</a></li>
+            </ul>
+        </div>
+        <div data-role="footer" data-position="fixed">
+            <h4>&copy; Philipp Schneevoigt - TU Dresden</h4>
+        </div>
+    </div>
+
+    <!--Seite für Abwicklung Suche BM über Barcode-Scan-->
+    <div id="bm_barcode_page" data-role="page" data-content-theme="c">
+        <div data-role="header" data-position="fixed">
+            <h1 role="heading">TMP</h1>
+            <!--Navigation rechte Seite-->
+            <div class="ui-btn-right" data-role="controlgroup" data-type="horizontal">
+                <a id="bm_barcode_home" data-role="button" data-icon="home" data-iconpos="notext">Home</a>
+                <a id="bm_barcode_info" data-role="button" data-icon="info" data-iconpos="notext" data-rel="dialog">Info</a>
+            </div>
+        </div>
+        <div data-role="content">
+            <h1>Betriebsmittel über Barcode-Scan auswählen</h1>
+            <p style="text-align:justify">
+                Der Instandhalter kann den sich am BM befindlichen Barcode mit der Smartphone-Kamera scannen, um so an die benötigten
+                BM-Informationen zu gelangen.
+            </p>
+            <hr size="1" />
+            <!--Einbindung des Barcode-Readers-->
+            <input data-role="button" type="button" id="btn" class="ui-shadow ui-btn ui-corner-all" value="Barcode Scannen" />
+            <form id="scan_result">
+                <ul data-role="listview" data-inset="true">
+                    <li class="ui-field-contain" style="vertical-align:central" data-theme="a">
+                        <div style="font-size:25px; font-weight:bold; vertical-align:middle; text-align:center">Ergebnis des Barcode-Scans</div>
+                    </li>
+                    <li class="ui-field-contain" style="vertical-align:central">
+                        <div id="bm_barcode" style="font-size:25px; font-weight:bold; vertical-align:middle">Barcode:</div>
+                    </li>
+                    <li class="ui-field-contain" style="vertical-align:central">
+                        <div id="bm_valide" style="font-size:25px; font-weight:bold; vertical-align:middle">Barcode in Datenbank gefunden:</div>
+                    </li>
+                    <li id="bm_info_mit_barcode_button" class="ui-field-contain">
+                        <button type="button" id="bm_info_mit_barcode" class="ui-shadow ui-btn ui-corner-all">Detail-Inforamtionen zum erfassten BM</button>
+                    </li>
+                </ul>
+            </form>
+            <div id="scanner-container"></div>
+        </div>
+        <div data-role="footer" data-position="fixed">
+            <h4>&copy; Philipp Schneevoigt - TU Dresden</h4>
+        </div>
+    </div>
+
+    <!--Seite für Abwicklung Suche BM über Liste-->
+    <div id="bm_liste_page" data-role="page" data-content-theme="c">
+        <div data-role="header" data-position="fixed">
+            <h1 role="heading">TMP</h1>
+            <!--Navigation rechte Seite-->
+            <div class="ui-btn-right" data-role="controlgroup" data-type="horizontal">
+                <a href="" id="bm_liste_home" data-role="button" data-icon="home" data-iconpos="notext">Home</a>
+                <a href="" id="bm_liste_info" data-role="button" data-icon="info" data-iconpos="notext" data-rel="dialog">Info</a>
+            </div>
+        </div>
+        <div data-role="content">
+            <h1>Betriebsmittel über Liste wählen</h1>
+            <p style="text-align:justify">
+                In folgender Liste sind alle BM der Anlage aufgeführt. Der Instandhalter kann das gewünschte BM aus der Liste
+                auswählen um nähere Informationen zu erhalten.
+            </p>
+            <hr size="1" />
+            <!-- List-Template -->
+            <div id="betriebsmittel_liste_temp" style="display: none">
+                <ul class="betriebsmittel_temp" data-role="listview" data-divider-theme="a">
+                    <!-- List-Divider (Distillery) Template -->
+                    <li id="titleTemplate" data-role="list-divider">
+                        <span id="label">Titel</span>
+                        <span class="ui-li-count">-</span>
+                    </li>
+                    <!-- Betriebsmittel-Template -->
+                    <li id="entryTemplate" class="entry">
+                        <span id="forsearch" style="display: none"></span>
+                        <a onclick="set_bm_info_liste(this)" class="ui-li-anchor">
+                            <img class="ui-li-thumb" style="position:absolute; top:0; bottom:0; margin:auto" />
+                            <p id="ui-li-title" style="font-size:25px; font-weight:bold; margin-top:18px"></p>
+                        </a>
+                    </li>
+                </ul>
+            </div>
+            <!-- Liste -->
+            <div id="betriebsmittel_liste" class="content-list">
+                <ul class="betriebsmittel" data-role="listview" data-filter="false" data-inset="true"></ul>
+            </div>
+        </div>
+        <div data-role="footer" data-position="fixed">
+            <h4>&copy; Philipp Schneevoigt - TU Dresden</h4>
+        </div>
+    </div>
+
+    <!--Hier werden die Infos zum jeweiligen BM angezeigt-->
+    <div id="bm_info_page" data-role="page" data-content-theme="c">
+        <div data-role="header" data-position="fixed">
+            <h1 role="heading">TMP</h1>
+            <!--Navigation linke Seite-->
+            <div class="ui-btn-left" data-role="controlgroup" data-type="horizontal">
+                <a href="" id="zurueck_zu_bm_barcode" data-role="button" data-icon="arrow-l">|| ||| |</a>
+                <a href="" id="zurueck_zu_bm_liste" data-role="button" data-icon="arrow-l">Liste</a>
+            </div>
+            <!--Navigation rechte Seite-->
+            <div class="ui-btn-right" data-role="controlgroup" data-type="horizontal">
+                <a href="" id="bm_home" data-role="button" data-icon="home" data-iconpos="notext">Home</a>
+                <a href="" id="bm_info" data-role="button" data-icon="info" data-iconpos="notext" data-rel="dialog">Info</a>
+            </div>
+        </div>
+        <div id="bm_content" data-role="content">
+            <!--Überschrift-->
+            <div class="ui-body bm-desc">
+                <span class="table-left">
+                    <p style="font-size:30px; font-weight:bold; ">Info zum Betriebsmittel</p>
+                </span>
+                <span class="table-right" style="height:123px">
+                    <p id="bm_bezeichnung" style="font-size:80px; font-weight:bold; margin-left:35px; margin-top:20px;"></p>
+                </span>
+            </div>
+            <!--Bild-->
+            <center>
+                <img align="middle" style="max-height:250px; width:auto" />
+            </center>
+            <!--Ausgabe PDF-->
+            <form>
+                <ul data-role="listview" data-inset="true">
+                    <li class="ui-field-contain" style="vertical-align:central" data-theme="a">
+                        <div id="bm_typ" style="font-size:25px; font-weight:bold; vertical-align:middle; text-align:center"></div>
+                    </li>
+                    <li class="ui-field-contain" style="vertical-align:central">
+                        <div id="bm_barcode" style="font-size:20px; font-weight:bold; vertical-align:middle"></div>
+                    </li>
+                    <li class="ui-field-contain">
+                        <label for="pdf_deu" style="font-weight:bold">PDF (DE):</label>
+                        <button type="button" id="pdf_deu" class="ui-shadow ui-btn ui-corner-all">Abrufen</button>
+                    </li>
+                    <li class="ui-field-contain">
+                        <label for="pdf_eng" style="font-weight:bold">PDF (GB):</label>
+                        <button type="button" id="pdf_eng" class="ui-shadow ui-btn ui-corner-all">Abrufen</button>
+                    </li>
+                </ul>
+            </form>
+        </div>
+        <div data-role="footer" data-position="fixed">
+            <h4>&copy; Philipp Schneevoigt - TU Dresden</h4>
+        </div>
+    </div>
+
+    <!--Hier sollen allgemeine Infos zum Projekt angegeben werden!-->
+    <div id="pdf_page" data-role="page" data-content-theme="c">
+        <div data-role="header" data-position="fixed">
+            <h1 role="heading">TMP</h1>
+        </div>
+        <div id="pdf_div" data-role="content">
+            <a href="" id="pdf_de_anchor"></a>
+            <a href="" id="pdf_en_anchor"></a>
+        </div>
+    </div>
+
+    <!--Hier sollen allgemeine Infos zum Projekt angegeben werden!-->
+    <div id="projektinfo_page" data-role="page" data-content-theme="c">
+        <div data-role="header" data-position="fixed">
+            <h1 role="heading">TMP</h1>
+        </div>
+        <div data-role="content">
+            <p>Diese Anwendung wurde im Rahmen einer Projektarbeit im Basismodul "Industrielle AT" der TU Dresden erstellt.</p>
+            <p></p>
+            <p>Weitere Ausführungen werden noch nachgetragen...</p>
+        </div>
+    </div>
+</body>
+</html>
+

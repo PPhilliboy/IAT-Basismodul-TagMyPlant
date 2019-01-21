@@ -1,0 +1,29 @@
+//Anlage
+var ifa_anlage = new Array()
+
+//Betriebsmittel
+ifa_anlage.push(new Betriebsmittel("B1", "Behaelter", "4001518703007", "data/B1/basin_B1_pic.PNG", "https://tagmyplant.paul-foerster.com/IAT/data/B1/170707_de.pdf", "https://tagmyplant.paul-foerster.com/IAT/data/B1/170707_gb.pdf"));
+ifa_anlage.push(new Betriebsmittel("B2", "Behaelter", "4001518703107", "data/B2/basin_B2_pic.PNG", "https://tagmyplant.paul-foerster.com/IAT/data/B2/170707_de.pdf", "https://tagmyplant.paul-foerster.com/IAT/data/B2/170707_gb.pdf"));
+ifa_anlage.push(new Betriebsmittel("B3", "Behaelter", "4001518703307", "data/B3/basin_B3_pic.PNG", "https://tagmyplant.paul-foerster.com/IAT/data/B3/170707_de.pdf", "https://tagmyplant.paul-foerster.com/IAT/data/B3/170707_gb.pdf"));
+ifa_anlage.push(new Betriebsmittel("F1", "Durchflusssensor", "", "data/F1/sensor_F1_pic.PNG", "https://tagmyplant.paul-foerster.com/IAT/data/F1/170711_de.pdf", "https://tagmyplant.paul-foerster.com/IAT/data/F1/170711_gb.pdf"));
+ifa_anlage.push(new Betriebsmittel("F2", "Durchflusssensor", "", "data/F2/sensor_F2_pic.PNG", "https://tagmyplant.paul-foerster.com/IAT/data/F2/170711_de.pdf", "https://tagmyplant.paul-foerster.com/IAT/data/F2/170711_gb.pdf"));
+ifa_anlage.push(new Betriebsmittel("LH1", "Kap. Naeherungsschalter", "", "data/LH1/sensor_LH1_pic.PNG", "https://tagmyplant.paul-foerster.com/IAT/data/LH1/258172_de.pdf", "https://tagmyplant.paul-foerster.com/IAT/data/LH1/258172_gb.pdf"));
+ifa_anlage.push(new Betriebsmittel("LH2", "Kap. Naeherungsschalter", "", "data/LH2/sensor_LH2_pic.PNG", "https://tagmyplant.paul-foerster.com/IAT/data/LH2/258172_de.pdf", "https://tagmyplant.paul-foerster.com/IAT/data/LH2/258172_gb.pdf"));
+ifa_anlage.push(new Betriebsmittel("LH3", "Kap. Naeherungsschalter", "", "data/LH3/sensor_LH3_pic.PNG", "https://tagmyplant.paul-foerster.com/IAT/data/LH3/258172_de.pdf", "https://tagmyplant.paul-foerster.com/IAT/data/LH3/258172_gb.pdf"));
+ifa_anlage.push(new Betriebsmittel("LL1", "Kap. Naeherungsschalter", "", "data/LL1/sensor_LL1_pic.PNG", "https://tagmyplant.paul-foerster.com/IAT/data/LL1/258172_de.pdf", "https://tagmyplant.paul-foerster.com/IAT/data/LL1/258172_gb.pdf"));
+ifa_anlage.push(new Betriebsmittel("LL2", "Kap. Naeherungsschalter", "", "data/LL2/sensor_LL2_pic.PNG", "https://tagmyplant.paul-foerster.com/IAT/data/LL2/258172_de.pdf", "https://tagmyplant.paul-foerster.com/IAT/data/LL2/258172_gb.pdf"));
+ifa_anlage.push(new Betriebsmittel("LL3", "Kap. Naeherungsschalter", "", "data/LL3/sensor_LL3_pic.PNG", "https://tagmyplant.paul-foerster.com/IAT/data/LL3/258172_de.pdf", "https://tagmyplant.paul-foerster.com/IAT/data/LL3/258172_gb.pdf"));
+ifa_anlage.push(new Betriebsmittel("P1", "Pumpe", "", "data/P1/actuator_P1_pic.PNG", "https://tagmyplant.paul-foerster.com/IAT/data/P1/170712_de.pdf", "https://tagmyplant.paul-foerster.com/IAT/data/P1/170712_gb.pdf"));
+ifa_anlage.push(new Betriebsmittel("P2", "Pumpe", "", "data/P2/actuator_P2_pic.PNG", "https://tagmyplant.paul-foerster.com/IAT/data/P2/170712_de.pdf", "https://tagmyplant.paul-foerster.com/IAT/data/P2/170712_gb.pdf"));
+ifa_anlage.push(new Betriebsmittel("P3", "Pumpe", "", "data/P3/actuator_P3_pic.PNG", "https://tagmyplant.paul-foerster.com/IAT/data/P3/170712_de.pdf", "https://tagmyplant.paul-foerster.com/IAT/data/P3/170712_gb.pdf"));
+ifa_anlage.push(new Betriebsmittel("T", "Temperatursensor", "", "data/T/sensor_T_pic.PNG", "https://tagmyplant.paul-foerster.com/IAT/data/T/170709_de.pdf", "https://tagmyplant.paul-foerster.com/IAT/data/T/170709_gb.pdf"));
+ifa_anlage.push(new Betriebsmittel("V1", "Prop-Ventil", "4101090000607", "data/V1/actuator_V1_pic.PNG", "https://tagmyplant.paul-foerster.com/IAT/data/V1/170714_de.pdf", "https://tagmyplant.paul-foerster.com/IAT/data/V1/170714_de.pdf"));
+ifa_anlage.push(new Betriebsmittel("V2", "Prop-Ventil", "", "data/V2/actuator_V2_pic.PNG", "https://tagmyplant.paul-foerster.com/IAT/data/V2/170714_de.pdf", "https://tagmyplant.paul-foerster.com/IAT/data/V2/170714_gb.pdf"));
+ifa_anlage.push(new Betriebsmittel("W", "Heizung", "", "data/W/actuator_W_pic.PNG", "https://tagmyplant.paul-foerster.com/IAT/data/W/170713_de.pdf", "https://tagmyplant.paul-foerster.com/IAT/data/W/170713_gb.pdf"));
+ifa_anlage.push(new Betriebsmittel("Y1", "2/2 W Ventil", "", "data/Y1/actuator_Y1_pic.PNG", "https://tagmyplant.paul-foerster.com/IAT/data/Y1/170715_de.pdf", "https://tagmyplant.paul-foerster.com/IAT/data/Y1/170715_gb.pdf"));
+ifa_anlage.push(new Betriebsmittel("Y2", "2/2 W Ventil", "", "data/Y2/actuator_Y2_pic.PNG", "https://tagmyplant.paul-foerster.com/IAT/data/Y2/170715_de.pdf", "https://tagmyplant.paul-foerster.com/IAT/data/Y2/170715_gb.pdf"));
+ifa_anlage.push(new Betriebsmittel("Y3", "2/2 W Ventil", "", "data/Y3/actuator_Y3_pic.PNG", "https://tagmyplant.paul-foerster.com/IAT/data/Y3/170715_de.pdf", "https://tagmyplant.paul-foerster.com/IAT/data/Y3/170715_gb.pdf"));
+ifa_anlage.push(new Betriebsmittel("Y4", "2/2 W Ventil", "", "data/Y4/actuator_Y4_pic.PNG", "https://tagmyplant.paul-foerster.com/IAT/data/Y4/170715_de.pdf", "https://tagmyplant.paul-foerster.com/IAT/data/Y4/170715_gb.pdf"));
+ifa_anlage.push(new Betriebsmittel("Y5", "2/2 W Ventil", "", "data/Y5/actuator_Y5_pic.PNG", "https://tagmyplant.paul-foerster.com/IAT/data/Y5/170715_de.pdf", "https://tagmyplant.paul-foerster.com/IAT/data/Y5/170715_gb.pdf"));
+ifa_anlage.push(new Betriebsmittel("Y6", "2/2 W Ventil", "", "data/Y6/actuator_Y6_pic.PNG", "https://tagmyplant.paul-foerster.com/IAT/data/Y6/170715_de.pdf", "https://tagmyplant.paul-foerster.com/IAT/data/Y6/170715_gb.pdf"));
+ifa_anlage.push(new Betriebsmittel("Y7", "2/2 W Ventil", "", "data/Y7/actuator_Y7_pic.PNG", "https://tagmyplant.paul-foerster.com/IAT/data/Y7/170715_de.pdf", "https://tagmyplant.paul-foerster.com/IAT/data/Y7/170715_gb.pdf"));

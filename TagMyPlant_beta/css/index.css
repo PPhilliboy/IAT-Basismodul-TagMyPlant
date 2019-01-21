@@ -1,0 +1,10 @@
+/* Tabelle Betriebsmittel-Info*/
+.table-left{
+    width: 60%;
+    float: left;
+}
+.table-right {
+    width: 40%;
+    float: right;
+}
+
